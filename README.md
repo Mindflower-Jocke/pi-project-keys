@@ -6,7 +6,7 @@ provider costs (e.g. OpenRouter) per project.
 ## Install
 
 ```bash
-pi install git:github.com/<you>/pi-project-keys   # or: pi install npm:pi-project-keys
+pi install git:github.com/Mindflower-Jocke/pi-project-keys
 ```
 
 ## Usage

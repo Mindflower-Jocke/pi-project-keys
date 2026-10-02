@@ -2,9 +2,29 @@
   "name": "pi-project-keys",
   "version": "0.1.0",
   "description": "Pi extension: use a different API key (e.g. OpenRouter) per project folder to track costs.",
-  "keywords": ["pi-package", "pi-extension", "openrouter", "api-key"],
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "openrouter",
+    "api-key"
+  ],
   "license": "MIT",
-  "files": ["extensions", "README.md", "LICENSE"],
-  "pi": { "extensions": ["./extensions/index.ts"] },
-  "peerDependencies": { "@earendil-works/pi-coding-agent": "*" }
+  "files": [
+    "extensions",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions/index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mindflower-Jocke/pi-project-keys.git"
+  },
+  "homepage": "https://github.com/Mindflower-Jocke/pi-project-keys#readme"
 }
