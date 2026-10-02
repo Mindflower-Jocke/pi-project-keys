@@ -81,10 +81,14 @@ export default function (pi: ExtensionAPI) {
 			if (arg === "show") {
 				const hit = lookup(provider, dir);
 				const rt = (ctx as any).modelRegistry?.runtime;
-				ctx.ui.notify(
-					`${provider} cwd=${dir} match=${hit ? hit.folder + " (…" + hit.key.slice(-4) + ")" : "none"} runtime=${rt ? typeof rt.setRuntimeApiKey : "MISSING"} status=${JSON.stringify(ctx.modelRegistry?.getProviderAuthStatus?.(provider))}`,
-					"info",
-				);
+				const active = ctx.modelRegistry?.getProviderAuthStatus?.(provider)?.source === "runtime";
+				const where = hit?.folder.replace(homedir(), "~");
+				let msg: string;
+				if (!rt?.setRuntimeApiKey) msg = `${provider}: default key (override unavailable in this pi version)`;
+				else if (hit && active) msg = `${provider}: project key …${hit.key.slice(-4)} (${where})`;
+				else if (hit) msg = `${provider}: default key (project key …${hit.key.slice(-4)} not applied yet, try /reload)`;
+				else msg = `${provider}: default key`;
+				ctx.ui.notify(msg, "info");
 				return;
 			}
 			if (arg === "clear") {
