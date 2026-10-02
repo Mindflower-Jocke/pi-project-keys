@@ -47,7 +47,7 @@ folder matches.
 ## Caveat
 
 It accesses `ctx.modelRegistry.runtime`, which is not part of the documented extension API and may
-change in future pi versions. Run `/projectkey show` to diagnose (`runtime=MISSING` means it broke).
+change in future pi versions. If `/projectkey show` reports "override unavailable", it broke.
 
 ## License
 
